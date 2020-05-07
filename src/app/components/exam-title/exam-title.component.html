@@ -1,0 +1,40 @@
+<div class="container pt-4">
+    <h1>Exam title</h1>
+    <p>Please edit or add your exam title</p>
+</div>
+<div class="container pt-5">
+    <div class="row">
+        <label>Exam title</label>
+        <input type="text" id="title" [(ngModel)]="exam.title"/> 
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <a (click)="save()" ><input class="btn btn-primary" type="button" value="Create"></a>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{ title }}</h4>
+          <!--<button type="button" class="close" data-dismiss="modal" (click) = "hide()">&times;</button>-->
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          {{ content }}
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>-->
+        </div>
+        
+      </div>
+    </div>
+  </div>

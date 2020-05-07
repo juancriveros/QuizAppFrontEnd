@@ -1,0 +1,35 @@
+<div style="margin: 35px">
+    <json-schema-form
+        loadExternalAssets="true"
+        [schema]="schema"
+        framework="bootstrap-4"
+        [(data)]="questionData"
+        (onSubmit)="onSubmit($event)">
+    </json-schema-form>
+</div>
+    <pre>{{submittedFormData | json}}</pre>
+
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{ title }}</h4>
+          <button type="button" class="close" data-dismiss="modal" (click) = "hide()">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          {{ content }}
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

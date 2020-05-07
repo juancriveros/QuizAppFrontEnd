@@ -1,0 +1,51 @@
+
+
+<div class="container pt-4">
+    <h1>Select a exam</h1>
+    <p>Please choose one exam to present</p>
+</div>
+<div class="container pt-5">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Present</th>
+              </tr>   
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of exams">
+                <th scope="row">{{x.id}}</th>
+                <td>{{x.title}}</td>
+                <td><a class="pointer" style="cursor: pointer; color: #007bff;" (click)="presentExam(x.id, x.title)" ><fa-icon [icon]="faEdit"></fa-icon></a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{ title }}</h4>
+        <button type="button" class="close" data-dismiss="modal" (click) = "hide()">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        {{ content }}
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

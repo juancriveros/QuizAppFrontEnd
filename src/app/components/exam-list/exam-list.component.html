@@ -1,0 +1,33 @@
+
+
+<div class="container pt-4">
+    <h1>Quiz Manager</h1>
+    <p>Please choose one exam to edit or add one</p>
+</div>
+<div class="container pt-5">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Edit title</th>
+                <th scope="col">View questions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of exams">
+                <th scope="row">{{x.id}}</th>
+                <td>{{x.title}}</td>
+                <td><a class="pointer" [routerLink]="['/ExamTitle']" [queryParams]="{id: x.id, title: x.title}" ><fa-icon [icon]="faEdit"></fa-icon></a></td>
+                <td><a class="pointer" [routerLink]="['/ExamInfo']" [queryParams]="{id: x.id, title: x.title}" ><fa-icon [icon]="faEye"></fa-icon></a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="row">
+        <div class="col-2">
+          <a class="pointer"  routerLink="/ExamTitle"><input class="btn btn-primary" type="button" value="Create"></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+
+
+<div class="container pt-4">
+    <h1>{{exam.title}}</h1>
+    <p>Choose one answer per question</p>
+</div>
+<div class="container pt-5">
+    <div *ngFor="let x of questions; let j = index" class="pb-4">
+        <div class="row">
+            <label>{{j+1}}. {{x.title}}</label>
+        </div>
+        <div>
+            <div *ngFor="let y of x.choices; let i = index" class="custom-control custom-radio">
+                <input type="radio" id="{{y.id}}" name="customRadio{{j}}" (change)="onSelectionChange(y)" class="custom-control-input">
+                <label class="custom-control-label" for="{{y.id}}">{{y.choice}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container pt-5">
+    <div class="row">
+        <a (click)="save()" ><input class="btn btn-primary" type="button" value="Submit"></a>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{ title }}</h4>
+          <button type="button" class="close" data-dismiss="modal" (click) = "hide()">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          {{ content }}
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
